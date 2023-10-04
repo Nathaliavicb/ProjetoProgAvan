@@ -1,0 +1,46 @@
+﻿@page
+@model WebApplicationPA.Pages.Albums.IndexModel
+@{
+}
+
+<br>
+<h2>
+    List of Albums
+</h2>
+<a class='btn btn-primary btn-sm' href="/Albums/Create"> New CLient</a>
+
+<div style="display: grid; grid-template-columns: repeat(4, 1fr);">
+    <div>
+
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Album Name</th>
+            <th>Artits Name</th>
+            <th>Year</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Albums)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.AlbumName</td>
+                <td>@item.ArtitsName</td>
+                <td>@item.Year</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Albums/Edit?id=@item.ID">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Albums/Delete?id=@item.ID">
+                        Delete</a>
+                    <a class="btn btn-secondary btn-sm" href="/Tracks/Index?album-id=@item.ID">Tracks</a>
+                </td>
+               
+            </tr>
+        }
+    </tbody>
+</table>

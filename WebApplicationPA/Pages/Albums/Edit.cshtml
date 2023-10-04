@@ -1,0 +1,57 @@
+﻿@page
+@model WebApplicationPA.Pages.Albums.EditModel
+@{
+}
+
+<br>
+<h2>Edit Album</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <buttom type='button' class="btn-close" data-bs-dismiss="alert" aria-label="Close"></buttom>
+    </div>
+}
+<form method="POST">
+    <input type="hidden" name="id" value="@Model.Album.ID">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Album Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Album Name" value="@Model.Album.AlbumName" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Artist Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Artist Name" value="@Model.Album.ArtitsName" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Year</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Year" value="@Model.Album.Year" />
+        </div>
+    </div>
+
+    @if (Model.sucessMessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.sucessMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

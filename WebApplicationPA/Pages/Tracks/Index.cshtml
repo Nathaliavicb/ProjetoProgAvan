@@ -1,0 +1,41 @@
+﻿@page
+@model WebApplicationPA.Pages.Tracks.IndexModel
+@{
+}
+
+<br>
+<h2>
+    List of Album's Tracks
+</h2>
+<a class='btn btn-primary btn-sm' href="/Tracks/Create?album-id=@Request.Query["album-id"]"> New Track</a>
+
+<div style="display: grid; grid-template-columns: repeat(4, 1fr);">
+    <div>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Track Name</th>
+            <th>Number</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tracks)
+        {
+            <tr>
+                <td>@item.ID</td>
+                <td>@item.trackName</td>
+                <td>@item.number</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Tracks/Edit?album-id=@Request.Query["album-id"]&id=@item.ID">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Tracks/Delete?album-id=@Request.Query["album-id"]&id=@item.ID">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
